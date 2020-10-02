@@ -16,28 +16,100 @@ final class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    // MARK: Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupView()
-
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        clearTextFields()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        activityIndicator.stopAnimating()
+    }
+    
+    // MARK: Private methods
     
     private func setupView() {
         self.title = "Login screen"
+        
+        activityIndicator.hidesWhenStopped = true
         
         loginTextField.setupTextField(placeholder: "Your login", borderWidth: 1, borderColor: .systemGray4, cornerRadius: 5, isSecureTextEntry: false)
         
         passwordTextField.setupTextField(placeholder: "Your password", borderWidth: 1, borderColor: .systemGray4, cornerRadius: 5, isSecureTextEntry: true)
         
-        loginButton.setupButton(backgroundColor: .blue, titleColor: .white, cornerRadius: 10)
+        loginButton.setupButton(backgroundColor: .blue, title: "Log in", titleColor: .white, cornerRadius: 10)
     
         loginTextField.delegate = self
         passwordTextField.delegate = self
+        
+        self.hideKeyboardOnTap()
+        
+    }
+    
+    private func clearTextFields() {
+        if loginTextField.text != "" && passwordTextField.text != "" {
+            loginTextField.text = ""
+            passwordTextField.text = ""
+        }
+        loginTextField.becomeFirstResponder()
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(okButton)
+        self.present(alert, animated: true)
+    }
+    
+    private func requestAuthorization (username: String, password: String) {
+        NetworkManager.signIn(userName: username, password: password) { (auth, error) in
+            if let authorizationData = auth {
+                if authorizationData.status == "ok" {
+                    UD.shared.code = auth!.code
+                    DispatchQueue.main.async {
+                        guard let secondVC = self.storyboard?.instantiateViewController(identifier: MainViewController.identifier) as? MainViewController else { return }
+                        self.show(secondVC, sender: nil)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.showAlert(title: "Error", message: "Incorrect login/password")
+                        self.activityIndicator.stopAnimating()
+                        self.activityIndicator.hidesWhenStopped = true
+                    }
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.showAlert(title: "Error", message: "Request failed")
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.hidesWhenStopped = true
+                }
+            }
+        }
     }
 
+    // MARK: IBActions
+    
+    @IBAction func loginButtonTapped(_ sender: UIButton) {
+        activityIndicator.startAnimating()
+        print("trying to log in")
+        requestAuthorization(username: loginTextField.text ?? "", password: passwordTextField.text ?? "")
+    }
+    
 }
 
+    // MARK: - UITextFieldDelegate
+
 extension LoginViewController: UITextFieldDelegate {
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        requestAuthorization(username: loginTextField.text ?? "", password: passwordTextField.text ?? "")
+        activityIndicator.startAnimating()
+        return true
+    }
 }

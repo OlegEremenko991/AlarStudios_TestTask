@@ -9,10 +9,11 @@ import UIKit
 
 extension UIButton {
     
-    func setupButton(backgroundColor: UIColor, titleColor: UIColor, cornerRadius: CGFloat) {
+    func setupButton(backgroundColor: UIColor, title: String, titleColor: UIColor, cornerRadius: CGFloat) {
         self.backgroundColor = backgroundColor
         self.setTitleColor(titleColor, for: .normal)
         self.layer.cornerRadius = cornerRadius
+        self.setTitle(title, for: .normal)
     }
     
 }
