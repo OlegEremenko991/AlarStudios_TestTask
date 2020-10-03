@@ -127,7 +127,6 @@ extension MainViewController: UITableViewDelegate {
         targetVC.placeCountry = dataSource[indexPath.row].country ?? ""
         targetVC.placeLatitude = dataSource[indexPath.row].lat ?? 0
         targetVC.placeLongitude = dataSource[indexPath.row].lon ?? 0
-//        targetVC.title = targetVC.placeName
         
         tableView.deselectRow(at: indexPath, animated: true)
         
