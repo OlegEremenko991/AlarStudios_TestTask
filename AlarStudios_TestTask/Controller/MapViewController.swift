@@ -38,6 +38,7 @@ class MapViewController: UIViewController {
     
     private func setupView() {
         title = "Airport location"
+        
         nameLabel.setupLabel(text: "Airport name: " + placeName, textAlignment: .center, font: UIFont(name: "Verdana-Bold", size: 17))
         countryLabel.setupLabel(text: "Country: " + placeCountry, textAlignment: .center, font: UIFont(name: "Verdana-Medium", size: 17))
         latLabel.setupLabel(text: "Latitude: " + String(placeLatitude), textAlignment: .center)
