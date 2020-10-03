@@ -8,7 +8,6 @@
 import Foundation
 
 struct JsonData: Codable {
-    var id: String? = nil
     var name: String? = nil
     var country: String? = nil
     var lat: Double? = nil
