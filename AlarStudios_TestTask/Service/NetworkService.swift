@@ -34,9 +34,9 @@ class NetworkService {
         guard let request = RequestType.gatherData(code, String(pageNumber)).finalURL else { return }
 
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard let goodData = data else { return }
+            guard let data = data else { return }
             do {
-                guard let dataModel = try JSONDecoder().decode(DataModel?.self, from: goodData) else { return }
+                guard let dataModel = try JSONDecoder().decode(DataModel?.self, from: data) else { return }
                 completion(dataModel, nil)
             } catch {
                 completion(nil, error)
