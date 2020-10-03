@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomCell: UITableViewCell {
+final class CustomCell: UITableViewCell {
     
     // MARK: Public properties
     

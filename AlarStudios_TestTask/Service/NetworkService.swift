@@ -9,36 +9,36 @@ import Foundation
 
 class NetworkService {
     
-    class func signIn (userName: String, password: String, completionHandler: @escaping (ResponseModel?, Error?) -> ()) {
+    static func signIn (userName: String, password: String, completion: @escaping (ResponseModel?, Error?) -> ()) {
         guard let request = RequestType.logIn(userName, password).finalURL else { return }
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard error == nil else {
-                completionHandler(nil, error)
+                completion(nil, error)
                 print("\(error!)")
                 return
             }
             do {
                 guard let goodData = data else { return }
                 let auth = try JSONDecoder().decode(ResponseModel.self, from: goodData)
-                completionHandler(auth, nil)
+                completion(auth, nil)
             } catch {
                 print(error)
-                completionHandler(nil, error)
+                completion(nil, error)
             }
         }
         task.resume()
     }
     
-    class func getData (code: String, pageNumber: Int, completionHandler: @escaping (DataModel?, Error?) -> ()) {
+    static func getData (code: String, pageNumber: Int, completion: @escaping (DataModel?, Error?) -> ()) {
         guard let request = RequestType.gatherData(code, String(pageNumber)).finalURL else { return }
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let goodData = data else { return }
             do {
                 guard let dataModel = try JSONDecoder().decode(DataModel?.self, from: goodData) else { return }
-                completionHandler(dataModel, nil)
+                completion(dataModel, nil)
             } catch {
-                completionHandler(nil, error)
+                completion(nil, error)
             }
         }
         
