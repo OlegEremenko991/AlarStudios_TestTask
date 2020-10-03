@@ -9,11 +9,15 @@ import UIKit
 
 extension UITextField {
     
-    func setupTextField(placeholder: String, borderWidth: CGFloat, borderColor: UIColor, cornerRadius: CGFloat, isSecureTextEntry: Bool) {
+    func setupTextField(placeholder: String,
+                        borderWidth: CGFloat? = nil,
+                        borderColor: UIColor? = nil,
+                        cornerRadius: CGFloat? = nil,
+                        isSecureTextEntry: Bool) {
         self.placeholder = placeholder
-        self.layer.borderWidth = borderWidth
-        self.layer.borderColor = borderColor.cgColor
-        self.layer.cornerRadius = cornerRadius
+        self.layer.borderWidth = borderWidth ?? 1
+        self.layer.borderColor = borderColor?.cgColor ?? UIColor.systemGray4.cgColor
+        self.layer.cornerRadius = cornerRadius ?? 5
         self.isSecureTextEntry = isSecureTextEntry
     }
     

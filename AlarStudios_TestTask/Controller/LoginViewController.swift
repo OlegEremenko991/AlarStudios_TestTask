@@ -40,9 +40,9 @@ final class LoginViewController: UIViewController {
         
         activityIndicator.hidesWhenStopped = true
         
-        loginTextField.setupTextField(placeholder: "Your login", borderWidth: 1, borderColor: .systemGray4, cornerRadius: 5, isSecureTextEntry: false)
+        loginTextField.setupTextField(placeholder: "Your login", isSecureTextEntry: false)
         
-        passwordTextField.setupTextField(placeholder: "Your password", borderWidth: 1, borderColor: .systemGray4, cornerRadius: 5, isSecureTextEntry: true)
+        passwordTextField.setupTextField(placeholder: "Your password", isSecureTextEntry: true)
         
         loginButton.setupButton(backgroundColor: .blue, title: "Log in", titleColor: .white, cornerRadius: 10)
     
