@@ -12,7 +12,6 @@ final class CustomCell: UITableViewCell {
     // MARK: Public properties
     
     static let identifier = "CustomCellId"
-
     let flagImage = CustomImageView()
     let titleLabel = UILabel()
     let countryLabel = UILabel()
