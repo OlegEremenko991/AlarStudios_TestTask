@@ -9,12 +9,13 @@ import UIKit
 
 extension UILabel {
     
-    func setupLabel(text: String, textAlignment: NSTextAlignment? = nil, font: UIFont, textColor: UIColor, cornerRadius: CGFloat? = nil) {
+    func setupLabel(text: String, textAlignment: NSTextAlignment? = nil, font: UIFont, textColor: UIColor, cornerRadius: CGFloat? = nil, numberOfLines: Int? = nil) {
         self.text = text
         self.textAlignment = textAlignment ?? .left
         self.font = font
         self.textColor = textColor
         self.layer.cornerRadius = cornerRadius ?? 0
+        self.numberOfLines = numberOfLines ?? 0
     }
     
 }

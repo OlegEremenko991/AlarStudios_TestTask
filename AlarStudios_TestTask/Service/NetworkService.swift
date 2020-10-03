@@ -7,10 +7,10 @@
 
 import Foundation
 
-class NetworkManager {
+class NetworkService {
     
     class func signIn (userName: String, password: String, completionHandler: @escaping (ResponseModel?, Error?) -> ()) {
-        guard let request = RequestType.getAuthorization(userName, password).finalURL else { return }
+        guard let request = RequestType.logIn(userName, password).finalURL else { return }
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard error == nil else {
@@ -31,7 +31,7 @@ class NetworkManager {
     }
     
     class func getData (code: String, pageNumber: Int, completionHandler: @escaping (DataModel?, Error?) -> ()) {
-        guard let request = RequestType.getData(code, String(pageNumber)).finalURL else { return }
+        guard let request = RequestType.gatherData(code, String(pageNumber)).finalURL else { return }
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let goodData = data else { return }
             do {

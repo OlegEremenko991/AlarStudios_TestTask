@@ -8,14 +8,16 @@
 import Foundation
 
 enum RequestType {
-    case getAuthorization(String, String)
-    case getData(String, String)
+    case logIn(String, String)
+    case gatherData(String, String)
+    
+    // MARK: Public properties
     
     var stringURL: String {
         switch self {
-        case .getAuthorization(let login, let password):
+        case .logIn(let login, let password):
             return "http://www.alarstudios.com/test/auth.cgi?username=\(login)&password=\(password)"
-        case .getData(let code, let pageNumber):
+        case .gatherData(let code, let pageNumber):
             return "http://www.alarstudios.com/test/data.cgi?code=\(code)&p=\(pageNumber)"
         }
     }
@@ -23,4 +25,5 @@ enum RequestType {
     var finalURL: URL? {
         return URL(string: self.stringURL)
     }
+    
 }
