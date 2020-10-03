@@ -15,7 +15,7 @@ class NetworkService {
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard error == nil else {
                 completion(nil, error)
-                print("\(error!)")
+                print(error!)
                 return
             }
             do {
@@ -32,7 +32,7 @@ class NetworkService {
     
     static func getData (code: String, pageNumber: Int, completion: @escaping (DataModel?, Error?) -> ()) {
         guard let request = RequestType.gatherData(code, String(pageNumber)).finalURL else { return }
-        print(request)
+
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let goodData = data else { return }
             do {
@@ -42,7 +42,7 @@ class NetworkService {
                 completion(nil, error)
             }
         }
-        
         task.resume()
     }
+    
 }

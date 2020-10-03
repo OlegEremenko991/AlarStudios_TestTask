@@ -54,17 +54,15 @@ final class LoginViewController: UIViewController {
     }
     
     private func clearTextFields() {
-        if loginTextField.text != "" && passwordTextField.text != "" {
-            loginTextField.text = ""
-            passwordTextField.text = ""
-        }
+        loginTextField.text = ""
+        passwordTextField.text = ""
         loginTextField.becomeFirstResponder()
     }
     
     private func showAlertController(title: String, message: String) {
         let okAction = UIAlertAction(title: "Ok!", style: .cancel, handler: nil)
         let alert = AlertService.showAlert(title: title, message: message, actions: [okAction])
-        self.navigationController?.present(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
     
     private func requestAuthorization (username: String, password: String) {
@@ -80,7 +78,6 @@ final class LoginViewController: UIViewController {
                     DispatchQueue.main.async {
                         self.showAlertController(title: "Error", message: "Incorrect login/password")
                         self.activityIndicator.stopAnimating()
-                        self.activityIndicator.hidesWhenStopped = true
                     }
                 }
             } else {
@@ -96,8 +93,13 @@ final class LoginViewController: UIViewController {
     // MARK: IBActions
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-        activityIndicator.startAnimating()
-        requestAuthorization(username: loginTextField.text ?? "", password: passwordTextField.text ?? "")
+        if loginTextField.text != "" && passwordTextField.text != "" {
+            activityIndicator.startAnimating()
+            requestAuthorization(username: loginTextField.text ?? "", password: passwordTextField.text ?? "")
+        } else {
+            showAlertController(title: "Error", message: "Please enter your login and password")
+        }
+        
     }
     
 }

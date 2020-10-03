@@ -11,7 +11,7 @@ final class MainViewController: UIViewController {
 
     // MARK: Public properties
     
-    static let identifier = "MainViewController"
+    static let identifier = "MainViewControllerID"
     var code = ""
     
     // MARK: Private properties
@@ -29,11 +29,6 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         requestData()
-    }
-    
-    deinit {
-        code = ""
-        print("deinit")
     }
     
     // MARK: Private methods

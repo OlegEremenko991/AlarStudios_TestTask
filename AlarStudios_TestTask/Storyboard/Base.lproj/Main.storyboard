@@ -16,8 +16,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="J0D-aH-azu">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="BMd-On-gR0">
-                                <rect key="frame" x="107" y="366.5" width="200" height="163"/>
+                                <rect key="frame" x="107" y="384" width="200" height="128"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="giO-qI-345">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="34"/>
@@ -36,9 +39,6 @@
                                             <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ePy-4L-UUN"/>
                                         </connections>
                                     </button>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="J0D-aH-azu">
-                                        <rect key="frame" x="0.0" y="143" width="200" height="20"/>
-                                    </activityIndicatorView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="fVq-6q-cMD"/>
@@ -48,7 +48,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="J0D-aH-azu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="4oS-gq-Xex"/>
                             <constraint firstItem="BMd-On-gR0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="BDK-yn-r2T"/>
+                            <constraint firstItem="J0D-aH-azu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="F6b-JM-jSK"/>
                             <constraint firstItem="BMd-On-gR0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xO5-0L-1IN"/>
                         </constraints>
                     </view>
@@ -67,7 +69,7 @@
         <!--Main View Controller-->
         <scene sceneID="cXM-dz-DcC">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" id="evf-GF-atf" customClass="MainViewController" customModule="AlarStudios_TestTask" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewControllerID" id="evf-GF-atf" customClass="MainViewController" customModule="AlarStudios_TestTask" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="huC-M6-GmS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
