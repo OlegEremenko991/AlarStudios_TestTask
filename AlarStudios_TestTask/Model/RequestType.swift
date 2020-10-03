@@ -13,6 +13,10 @@ enum RequestType {
     
     // MARK: Public properties
     
+    var finalURL: URL? {
+        return URL(string: stringURL)
+    }
+    
     var stringURL: String {
         switch self {
         case .logIn(let login, let password):
@@ -20,10 +24,6 @@ enum RequestType {
         case .gatherData(let code, let pageNumber):
             return "http://www.alarstudios.com/test/data.cgi?code=\(code)&p=\(pageNumber)"
         }
-    }
-    
-    var finalURL: URL? {
-        return URL(string: self.stringURL)
     }
     
 }
