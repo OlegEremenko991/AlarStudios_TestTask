@@ -87,11 +87,11 @@
 			isa = PBXGroup;
 			children = (
 				67A8A34B25278B90004A3672 /* App */,
-				67A8A35D25279557004A3672 /* Model */,
-				67A8A33D25276FC2004A3672 /* Controller */,
-				67A8A39825285555004A3672 /* View */,
-				67A8A35625279463004A3672 /* Service */,
-				67A8A34C25278B9B004A3672 /* Storyboard */,
+				67A8A35D25279557004A3672 /* Models */,
+				67A8A33D25276FC2004A3672 /* Controllers */,
+				67A8A39825285555004A3672 /* Views */,
+				67A8A35625279463004A3672 /* Services */,
+				67A8A34C25278B9B004A3672 /* Storyboards */,
 				67A8A34125277292004A3672 /* UIElements extensions */,
 				67A8A32E25276F06004A3672 /* Assets.xcassets */,
 				67A8A33325276F06004A3672 /* Info.plist */,
@@ -99,14 +99,14 @@
 			path = AlarStudios_TestTask;
 			sourceTree = "<group>";
 		};
-		67A8A33D25276FC2004A3672 /* Controller */ = {
+		67A8A33D25276FC2004A3672 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				67A8A33A25276FBD004A3672 /* LoginViewController.swift */,
 				67A8A36E25279B83004A3672 /* MainViewController.swift */,
 				67A8A3822527C5B1004A3672 /* MapViewController.swift */,
 			);
-			path = Controller;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		67A8A34125277292004A3672 /* UIElements extensions */ = {
@@ -129,25 +129,25 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		67A8A34C25278B9B004A3672 /* Storyboard */ = {
+		67A8A34C25278B9B004A3672 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				67A8A32B25276F03004A3672 /* Main.storyboard */,
 				67A8A33025276F06004A3672 /* LaunchScreen.storyboard */,
 			);
-			path = Storyboard;
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		67A8A35625279463004A3672 /* Service */ = {
+		67A8A35625279463004A3672 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				67A8A3572527949F004A3672 /* NetworkService.swift */,
 				67A8A37F2527AF0B004A3672 /* AlertService.swift */,
 			);
-			path = Service;
+			path = Services;
 			sourceTree = "<group>";
 		};
-		67A8A35D25279557004A3672 /* Model */ = {
+		67A8A35D25279557004A3672 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				67A8A35E25279562004A3672 /* ResponseModel.swift */,
@@ -156,16 +156,16 @@
 				67A8A35A252794D1004A3672 /* RequestType.swift */,
 				67A8A3A02528D9B2004A3672 /* MapMarkData.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		67A8A39825285555004A3672 /* View */ = {
+		67A8A39825285555004A3672 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				67A8A38D2528416D004A3672 /* CustomCell.swift */,
 				67A8A38A2527CB7C004A3672 /* CustomImageView.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

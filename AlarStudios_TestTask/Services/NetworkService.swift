@@ -7,12 +7,12 @@
 
 import Foundation
 
-class NetworkService {
+public final class NetworkService {
     
     static func signIn (userName: String, password: String, completion: @escaping (ResponseModel?, Error?) -> ()) {
         guard let request = RequestType.signIn(userName, password).url else { return }
         
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: request) { (data, _, error) in
             guard error == nil else {
                 completion(nil, error)
                 print(error!)
@@ -33,7 +33,7 @@ class NetworkService {
     static func getData (code: String, pageNumber: Int, completion: @escaping (DataModel?, Error?) -> ()) {
         guard let request = RequestType.gatherData(code, String(pageNumber)).url else { return }
 
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: request) { (data, _, error) in
             guard let data = data else { return }
             do {
                 guard let dataModel = try JSONDecoder().decode(DataModel?.self, from: data) else { return }

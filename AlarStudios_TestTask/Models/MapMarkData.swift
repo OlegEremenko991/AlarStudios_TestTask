@@ -16,7 +16,7 @@ final class MapMarkData: NSObject, MKAnnotation {
     let coordinate: CLLocationCoordinate2D
     var subtitle: String? { return locationName }
     
-    // MARK: Initializer
+    // MARK: Lifecycle
     
     init(placeTitle: String?, country: String?, locationCoordinate: CLLocationCoordinate2D) {
         title = placeTitle

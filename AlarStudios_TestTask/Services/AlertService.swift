@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class AlertService {
+public final class AlertService {
     
     static func showAlert(title: String, message: String, style: UIAlertController.Style? = nil, actions: [UIAlertAction]) -> UIAlertController {
         
