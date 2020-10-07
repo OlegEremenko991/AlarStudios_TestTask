@@ -81,15 +81,13 @@ final class LoginViewController: UIViewController {
         NetworkService.signIn(userName: username, password: password) { result in
             switch result {
             case .success(let authData):
-                print("success")
                 if authData.status == "ok" {
                     self.presentMainViewController(with: authData)
                 } else {
-                    self.showAlertController(title: "Error", message: "Incorrect login/password")
+                    self.showAlertController(title: "Error", message: ErrorModel.invalidLoginPassword.rawValue)
                 }
             case .failure(let error):
-                print(error)
-                self.showAlertController(title: "Error", message: "Request failed")
+                self.showAlertController(title: "Error", message: error.rawValue)
             }
         }
     }
@@ -97,11 +95,10 @@ final class LoginViewController: UIViewController {
     // MARK: IBActions
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-        if loginTextField.text != "" && passwordTextField.text != "" {
-            activityIndicator.startAnimating()
-            requestAuthorization(username: loginTextField.text ?? "", password: passwordTextField.text ?? "")
+        if loginTextField.text == "" || passwordTextField.text == "" {
+            showAlertController(title: "Error", message: ErrorModel.noLoginPassword.rawValue)
         } else {
-            showAlertController(title: "Error", message: "Please enter your login and password")
+            requestAuthorization(username: loginTextField.text ?? "", password: passwordTextField.text ?? "")
         }
         
     }

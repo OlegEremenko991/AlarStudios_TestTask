@@ -9,37 +9,41 @@ import Foundation
 
 public final class NetworkService {
     
-    static func signIn (userName: String, password: String, completion: @escaping (Result<ResponseModel, Error>) -> ()) {
+    static func signIn (userName: String, password: String, completion: @escaping (Result<ResponseModel, ErrorModel>) -> ()) {
         guard let request = RequestType.signIn(userName, password).url else { return }
         
         let task = URLSession.shared.dataTask(with: request) { (data, _, error) in
             guard error == nil else {
-                completion(.failure(error!))
-                print(error!)
+                completion(.failure(.requestFailed))
                 return
             }
             do {
-                guard let goodData = data else { return }
-                let auth = try JSONDecoder().decode(ResponseModel.self, from: goodData)
+                guard let data = data else {
+                    completion(.failure(.invalidData))
+                    return
+                }
+                let auth = try JSONDecoder().decode(ResponseModel.self, from: data)
                 completion(.success(auth))
             } catch {
-                print(error)
-                completion(.failure(error))
+                completion(.failure(.invalidLoginPassword))
             }
         }
         task.resume()
     }
     
-    static func getData (code: String, pageNumber: Int, completion: @escaping (Result<DataModel, Error>) -> ()) {
+    static func getData (code: String, pageNumber: Int, completion: @escaping (Result<DataModel, ErrorModel>) -> ()) {
         guard let request = RequestType.gatherData(code, String(pageNumber)).url else { return }
 
         let task = URLSession.shared.dataTask(with: request) { (data, _, error) in
-            guard let data = data else { return }
+            guard let data = data else {
+                completion(.failure(.invalidData))
+                return
+            }
             do {
                 guard let dataModel = try JSONDecoder().decode(DataModel?.self, from: data) else { return }
                 completion(.success(dataModel))
             } catch {
-                completion(.failure(error))
+                completion(.failure(.invalidData))
             }
         }
         task.resume()

@@ -56,7 +56,7 @@ final class MainViewController: UIViewController {
                 self.updateDataSource(with: data)
             case .failure(let error):
                 print(error)
-                self.showAlertController(title: "Error", message: "Could not load data")
+                self.showAlertController(title: "Error", message: error.rawValue)
                 return
             }
         }
