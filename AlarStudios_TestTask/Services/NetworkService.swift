@@ -8,7 +8,7 @@
 import Foundation
 
 public final class NetworkService {
-    
+     
     static func signIn (userName: String, password: String, completion: @escaping (Result<ResponseModel, ErrorModel>) -> ()) {
         guard let request = RequestType.signIn(userName, password).url else { return }
         
