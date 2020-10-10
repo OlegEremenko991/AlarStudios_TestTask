@@ -22,7 +22,6 @@ final class CustomImageView: UIImageView {
         spinner.translatesAutoresizingMaskIntoConstraints = false
         spinner.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         spinner.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        
         spinner.startAnimating()
     }
     
@@ -34,15 +33,19 @@ final class CustomImageView: UIImageView {
     
     func loadImage(from url: URL) {
         
-        image = nil
-        addSpinner()
+        DispatchQueue.main.async {
+            self.image = nil
+            self.addSpinner()
+        }        
         
         if let task = task { task.cancel() }
         
         if let imageFromCache = imageCache.object(forKey: url.absoluteString as AnyObject) as? UIImage {
-            image = imageFromCache
-            removeSpinner()
-            return
+            DispatchQueue.main.async {
+                self.image = imageFromCache
+                self.removeSpinner()
+                return
+            }
         }
         
         task = URLSession.shared.dataTask(with: url) { (data, response, error) in

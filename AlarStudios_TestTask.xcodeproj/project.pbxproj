@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		674E9CD82532059100144D26 /* LoadImageOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674E9CD72532059100144D26 /* LoadImageOperation.swift */; };
 		67A8A32625276F03004A3672 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A8A32525276F03004A3672 /* AppDelegate.swift */; };
 		67A8A32825276F03004A3672 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A8A32725276F03004A3672 /* SceneDelegate.swift */; };
 		67A8A32D25276F03004A3672 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67A8A32B25276F03004A3672 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		674E9CD72532059100144D26 /* LoadImageOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImageOperation.swift; sourceTree = "<group>"; };
 		67A8A32225276F03004A3672 /* AlarStudios_TestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlarStudios_TestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67A8A32525276F03004A3672 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67A8A32725276F03004A3672 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			children = (
 				67A8A3572527949F004A3672 /* NetworkService.swift */,
 				67A8A37F2527AF0B004A3672 /* AlertService.swift */,
+				674E9CD72532059100144D26 /* LoadImageOperation.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				67A8A32625276F03004A3672 /* AppDelegate.swift in Sources */,
 				67A8A32825276F03004A3672 /* SceneDelegate.swift in Sources */,
 				67A8A349252773CD004A3672 /* UIButton.swift in Sources */,
+				674E9CD82532059100144D26 /* LoadImageOperation.swift in Sources */,
 				67A8A35F25279562004A3672 /* ResponseModel.swift in Sources */,
 				67A8A3A12528D9B2004A3672 /* MapMarkData.swift in Sources */,
 				67A8A35B252794D1004A3672 /* RequestType.swift in Sources */,

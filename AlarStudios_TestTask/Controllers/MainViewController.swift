@@ -18,6 +18,7 @@ final class MainViewController: UIViewController {
     
     private var dataSource = DataModel().data
     private var pageNumber = 1
+    private let queue = OperationQueue()
     
     // MARK: IBOutlets
     
@@ -99,9 +100,14 @@ extension MainViewController: UITableViewDataSource {
         customCell.countryLabel.text = item.country
         
         // Load image for cell
+        let loadOperation = LoadImageOperation()
         
         if let url = URL(string: "https://cdn.countryflags.com/thumbs/\(dataSource[indexPath.row].country?.lowercased().replacingOccurrences(of: " ", with: "-") ?? "")/flag-800.png") {
-            customCell.flagImage.loadImage(from: url)
+            loadOperation.url = url
+            loadOperation.imageView = customCell.flagImage
+            queue.addOperation {
+                loadOperation.imageView?.loadImage(from: url)
+            }
         }
         
         return customCell
