@@ -18,7 +18,7 @@ enum RequestType {
         return URL(string: stringURL)
     }
     
-    var stringURL: String {
+    private var stringURL: String {
         switch self {
         case .signIn(let login, let password):
             return "http://www.alarstudios.com/test/auth.cgi?username=\(login)&password=\(password)"
