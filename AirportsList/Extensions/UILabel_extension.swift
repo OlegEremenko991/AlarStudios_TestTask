@@ -8,7 +8,7 @@
 import UIKit
 
 extension UILabel {
-    
+
     func setupLabel(text: String,
                     textAlignment: NSTextAlignment? = nil,
                     font: UIFont? = nil,
@@ -20,5 +20,5 @@ extension UILabel {
         self.layer.cornerRadius = cornerRadius ?? 0
         self.numberOfLines = numberOfLines ?? 0
     }
-    
+
 }

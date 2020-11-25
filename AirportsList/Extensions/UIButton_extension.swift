@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIButton {
-    
+
     func setupButton(backgroundColor: UIColor,
                      title: String,
                      titleColor: UIColor,
@@ -18,5 +18,5 @@ extension UIButton {
         self.layer.cornerRadius = cornerRadius
         self.setTitle(title, for: .normal)
     }
-    
+
 }

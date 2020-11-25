@@ -14,10 +14,10 @@
 		67A8A32F25276F06004A3672 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67A8A32E25276F06004A3672 /* Assets.xcassets */; };
 		67A8A33225276F06004A3672 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67A8A33025276F06004A3672 /* LaunchScreen.storyboard */; };
 		67A8A33B25276FBD004A3672 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A8A33A25276FBD004A3672 /* LoginViewController.swift */; };
-		67A8A343252772A8004A3672 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A8A342252772A8004A3672 /* UILabel.swift */; };
-		67A8A346252772C7004A3672 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A8A345252772C7004A3672 /* UITextField.swift */; };
-		67A8A349252773CD004A3672 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A8A348252773CD004A3672 /* UIButton.swift */; };
-		67A8A34F25279271004A3672 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A8A34E25279271004A3672 /* UIViewController.swift */; };
+		67A8A343252772A8004A3672 /* UILabel_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A8A342252772A8004A3672 /* UILabel_extension.swift */; };
+		67A8A346252772C7004A3672 /* UITextField_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A8A345252772C7004A3672 /* UITextField_extension.swift */; };
+		67A8A349252773CD004A3672 /* UIButton_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A8A348252773CD004A3672 /* UIButton_extension.swift */; };
+		67A8A34F25279271004A3672 /* UIViewController_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A8A34E25279271004A3672 /* UIViewController_extension.swift */; };
 		67A8A3582527949F004A3672 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A8A3572527949F004A3672 /* NetworkService.swift */; };
 		67A8A35B252794D1004A3672 /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A8A35A252794D1004A3672 /* RequestType.swift */; };
 		67A8A35F25279562004A3672 /* JsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A8A35E25279562004A3672 /* JsonModel.swift */; };
@@ -40,10 +40,10 @@
 		67A8A33125276F06004A3672 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		67A8A33325276F06004A3672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67A8A33A25276FBD004A3672 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		67A8A342252772A8004A3672 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
-		67A8A345252772C7004A3672 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
-		67A8A348252773CD004A3672 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
-		67A8A34E25279271004A3672 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		67A8A342252772A8004A3672 /* UILabel_extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel_extension.swift; sourceTree = "<group>"; };
+		67A8A345252772C7004A3672 /* UITextField_extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField_extension.swift; sourceTree = "<group>"; };
+		67A8A348252773CD004A3672 /* UIButton_extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton_extension.swift; sourceTree = "<group>"; };
+		67A8A34E25279271004A3672 /* UIViewController_extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController_extension.swift; sourceTree = "<group>"; };
 		67A8A3572527949F004A3672 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		67A8A35A252794D1004A3672 /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
 		67A8A35E25279562004A3672 /* JsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonModel.swift; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 				67A8A39825285555004A3672 /* Views */,
 				67A8A35625279463004A3672 /* Services */,
 				67A8A34C25278B9B004A3672 /* Storyboards */,
-				67A8A34125277292004A3672 /* UIElements extensions */,
+				67A8A34125277292004A3672 /* Extensions */,
 				67A8A32E25276F06004A3672 /* Assets.xcassets */,
 				67A8A33325276F06004A3672 /* Info.plist */,
 			);
@@ -119,15 +119,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		67A8A34125277292004A3672 /* UIElements extensions */ = {
+		67A8A34125277292004A3672 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				67A8A342252772A8004A3672 /* UILabel.swift */,
-				67A8A345252772C7004A3672 /* UITextField.swift */,
-				67A8A348252773CD004A3672 /* UIButton.swift */,
-				67A8A34E25279271004A3672 /* UIViewController.swift */,
+				67A8A342252772A8004A3672 /* UILabel_extension.swift */,
+				67A8A345252772C7004A3672 /* UITextField_extension.swift */,
+				67A8A348252773CD004A3672 /* UIButton_extension.swift */,
+				67A8A34E25279271004A3672 /* UIViewController_extension.swift */,
 			);
-			path = "UIElements extensions";
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		67A8A34B25278B90004A3672 /* App */ = {
@@ -250,15 +250,15 @@
 				67A8A38B2527CB7C004A3672 /* CustomImageView.swift in Sources */,
 				67A8A3582527949F004A3672 /* NetworkService.swift in Sources */,
 				67A8A36F25279B83004A3672 /* MainViewController.swift in Sources */,
-				67A8A34F25279271004A3672 /* UIViewController.swift in Sources */,
+				67A8A34F25279271004A3672 /* UIViewController_extension.swift in Sources */,
 				67A8A33B25276FBD004A3672 /* LoginViewController.swift in Sources */,
-				67A8A343252772A8004A3672 /* UILabel.swift in Sources */,
+				67A8A343252772A8004A3672 /* UILabel_extension.swift in Sources */,
 				67F989DD252E1E3F00A5BB3B /* ErrorType.swift in Sources */,
 				67A8A38E2528416D004A3672 /* CustomCell.swift in Sources */,
-				67A8A346252772C7004A3672 /* UITextField.swift in Sources */,
+				67A8A346252772C7004A3672 /* UITextField_extension.swift in Sources */,
 				67A8A32625276F03004A3672 /* AppDelegate.swift in Sources */,
 				67A8A32825276F03004A3672 /* SceneDelegate.swift in Sources */,
-				67A8A349252773CD004A3672 /* UIButton.swift in Sources */,
+				67A8A349252773CD004A3672 /* UIButton_extension.swift in Sources */,
 				674E9CD82532059100144D26 /* LoadImageOperation.swift in Sources */,
 				67A8A35F25279562004A3672 /* JsonModel.swift in Sources */,
 				67A8A3A12528D9B2004A3672 /* MapModel.swift in Sources */,

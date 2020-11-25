@@ -8,7 +8,7 @@
 import UIKit
 
 extension UITextField {
-    
+
     func setupTextField(placeholder: String,
                         borderWidth: CGFloat? = nil,
                         borderColor: UIColor? = nil,
@@ -20,5 +20,5 @@ extension UITextField {
         self.layer.cornerRadius = cornerRadius ?? 5
         self.isSecureTextEntry = isSecureTextEntry
     }
-    
+
 }
