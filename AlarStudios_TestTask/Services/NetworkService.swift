@@ -15,15 +15,15 @@ public final class NetworkService {
 
     func signIn (userName: String, password: String, completion: @escaping ResultCompletion<ResponseModel>) {
         guard let request = RequestType.signIn(userName, password).url else { return }
-        customDataTask(decodingType: ResponseModel.self, with: request, specificErrorType: .invalidLoginPassword, completion: completion)
+        dataTask(decodingType: ResponseModel.self, with: request, specificErrorType: .invalidLoginPassword, completion: completion)
     }
 
     func getData(code: String, pageNumber: Int, completion: @escaping ResultCompletion<DataModel>) {
         guard let request = RequestType.gatherData(code, String(pageNumber)).url else { return }
-        customDataTask(decodingType: DataModel.self, with: request, specificErrorType: .invalidData, completion: completion)
+        dataTask(decodingType: DataModel.self, with: request, specificErrorType: .invalidData, completion: completion)
     }
 
-    private func customDataTask<T:Decodable>(decodingType: T.Type, with request: URL, specificErrorType: ErrorType, completion: @escaping ResultCompletion<T>) {
+    private func dataTask<T:Decodable>(decodingType: T.Type, with request: URL, specificErrorType: ErrorType, completion: @escaping ResultCompletion<T>) {
         let task = URLSession.shared.dataTask(with: request) { (data, _, error) in
             guard error == nil else {
                 completion(.failure(.requestFailed))
