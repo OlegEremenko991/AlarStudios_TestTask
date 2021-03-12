@@ -12,13 +12,11 @@ enum RequestType {
     case signIn(String, String)
     case gatherData(String, String)
 
-    // MARK: Public properties
+    // MARK: - Public properties
 
-    var url: URL? {
-        return URL(string: stringURL)
-    }
+    var url: URL? { URL(string: stringURL) }
 
-    // MARK: Private properties
+    // MARK: - Private properties
 
     private var stringURL: String {
         switch self {
